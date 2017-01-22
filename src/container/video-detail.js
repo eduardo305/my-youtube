@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class VideoDetail extends Component {
   render() {
     if (!this.props.active) {
-      return <div></div>
+      return <div>Loading...</div>
     }
 
     const url = `https://www.youtube.com/embed/${this.props.active.activeVideo.id.videoId}`;

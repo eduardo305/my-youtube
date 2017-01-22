@@ -6,10 +6,12 @@ import VideoItem from './video-item';
 class VideoList extends Component {
 
   renderVideoItem() {
-    return this.props.videos.map((video) => {
-      return <VideoItem
-        key={video.id.videoId}
-        video={video} />
+    return this.props.videos.map((video, i) => {
+      if (i > 0) {
+        return <VideoItem
+          key={video.id.videoId}
+          video={video} />
+      }
     });
   }
 
