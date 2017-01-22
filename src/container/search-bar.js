@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import { fetchVideos } from '../actions/index';
 
@@ -16,7 +15,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div>
+      <div className="search-bar-wrapper">
         <input
         value={ this.state.term }
         onChange={ event => this.onSearchTermChange(event.target.value) }/>
@@ -30,14 +29,4 @@ class SearchBar extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    videos: state.videos.videos
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchVideos: fetchVideos }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+export default connect(null, { fetchVideos: fetchVideos })(SearchBar);

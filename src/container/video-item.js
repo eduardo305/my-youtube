@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectVideo } from '../actions/index';
-import { bindActionCreators } from 'redux';
 
 class VideoItem extends Component {
+  formatDate({ publishedAt }) {
+    return new Date(publishedAt).toString();
+  }
+
   render() {
     const { id, snippet } = this.props.video;
     return (
       <li key={ id.videoId } onClick={() => this.props.selectVideo(this.props.video)}>
-        <div className="wrapper">
+        <div className="video-item-wrapper">
           <img src={ snippet.thumbnails.default.url } />
-          <div>{ snippet.title }</div>
+          <div className="description">
+            <div>{ snippet.title }</div>
+            <div className="publishAt">{ this.formatDate(snippet) }</div>
+          </div>
         </div>
       </li>
     );
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ selectVideo:  selectVideo }, dispatch);
-}
-
-export default connect(null, mapDispatchToProps)(VideoItem);
+export default connect(null, { selectVideo })(VideoItem);

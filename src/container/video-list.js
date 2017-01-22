@@ -15,11 +15,11 @@ class VideoList extends Component {
 
   render() {
     if (!this.props.videos) {
-      return <div />;
+      return <div>Loading...</div>;
     }
 
     return (
-      <div>{ this.renderVideoItem() }</div>
+      <ul>{ this.renderVideoItem() }</ul>
     );
   }
 }

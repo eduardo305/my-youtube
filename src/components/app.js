@@ -7,7 +7,7 @@ import VideoList from '../container/video-list';
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <div className="app-wrapper">
         <SearchBar />
         <VideoDetail />
         <VideoList />
