@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 const VideoItem = function(props) {
   let formatDate = ({ publishedAt }) => {
-    return new Date(publishedAt).toString();
+    return moment(publishedAt).fromNow();
   };
 
   const { id, snippet } = props.video;
