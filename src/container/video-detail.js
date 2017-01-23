@@ -11,10 +11,9 @@ class VideoDetail extends Component {
     const url = `https://www.youtube.com/embed/${this.props.active.activeVideo.id.videoId}`;
 
     return (
-
       <div>
         <div className="embed-responsive embed-responsive-16by9">
-          <iframe className="embed-responsive-item" src={url}></iframe>
+          <iframe className="embed-responsive-item" src={ url }></iframe>
         </div>
       </div>
     );

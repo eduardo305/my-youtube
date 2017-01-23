@@ -29,4 +29,4 @@ class SearchBar extends Component {
   }
 }
 
-export default connect(null, { fetchVideos: fetchVideos })(SearchBar);
+export default connect(null, { fetchVideos })(SearchBar);

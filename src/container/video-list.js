@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import VideoItem from './video-item';
+import VideoItem from '../components/video-item';
+import { selectVideo } from '../actions/index';
 
 class VideoList extends Component {
 
@@ -9,11 +10,12 @@ class VideoList extends Component {
     return this.props.videos.map((video, i) => {
       if (i > 0) {
         return <VideoItem
-          key={video.id.videoId}
-          video={video} />
+          key={ video.id.videoId }
+          video={video} onSelectVideo={ this.props.selectVideo.bind(video) }/>
       }
     });
   }
+
 
   render() {
     if (!this.props.videos) {
@@ -32,4 +34,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(VideoList);
+export default connect(mapStateToProps, { selectVideo })(VideoList);
