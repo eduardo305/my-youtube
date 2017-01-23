@@ -31,3 +31,23 @@ ul li {
   width: 100%;
   padding: 5px;
 }
+
+.comment-item-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-height: 170px;
+  font-size: 0.8em;
+}
+
+.comment-item-wrapper img {
+  height: 100%;
+}
+
+.comment-item-wrapper .comment-area {
+  margin: 0 20px;
+  overflow: scroll;
+}
+
+.comment-item-wrapper .comment-owner {
+  font-weight: bold;
+}
